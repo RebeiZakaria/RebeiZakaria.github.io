@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zakaria Rebei, développeur web et mobile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F6F8;--fg:#14212B;--muted:#55656F;--line:#D5DDE2;--accent:#3A4FD6;--soft:#E7EBFA;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F151B;--fg:#E6EDF2;--muted:#93A4B0;--line:#26333D;--accent:#8E9CFF;--soft:#1A2240;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F151B;--fg:#E6EDF2;--muted:#93A4B0;--line:#26333D;--accent:#8E9CFF;--soft:#1A2240;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 17px/1.6 "Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:28px 0;flex-wrap:wrap}
+header strong{font-weight:800;font-size:19px}
+nav{display:flex;gap:22px}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--fg)}
+.hero{padding:56px 0 64px}
+h1{font-weight:800;font-size:clamp(34px,6.4vw,64px);line-height:1.04;letter-spacing:-.025em;margin:0 0 24px;max-width:15em}
+.lead{color:var(--muted);max-width:36em;margin:0 0 28px;font-size:18px}
+.links{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:11px 20px;border-radius:999px;border:1.5px solid var(--fg);text-decoration:none;font-weight:600}
+.btn.main{background:var(--fg);color:var(--bg)}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.main:hover{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+h2{font-weight:800;font-size:30px;letter-spacing:-.015em;margin:0 0 28px}
+section{padding:48px 0;border-top:1px solid var(--line)}
+.proj{padding:26px 0;border-bottom:1px solid var(--line)}
+.proj:last-child{border-bottom:0}
+.proj h3{font-size:22px;font-weight:600;margin:0 0 2px}
+.ctx{color:var(--muted);margin:0 0 10px;font-size:15px}
+.proj p{margin:0 0 10px;max-width:40em}
+.stack{font-weight:600;font-size:15px;margin:0 0 12px}
+.plinks{display:flex;gap:18px;font-weight:600;font-size:15px}
+.plinks a{color:var(--accent)}
+.feature{background:var(--soft);border-radius:18px;padding:30px;margin:8px 0 4px}
+.feature h3{font-size:26px;font-weight:800}
+.pb{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:18px 0}
+.pb h4{margin:0 0 6px;font-size:16px;font-weight:600}
+.pb p{margin:0;font-size:16px}
+.diagram{overflow-x:auto;margin-top:8px}
+.diagram svg{display:block;min-width:520px;width:100%;height:auto}
+.note{font-size:14px;color:var(--muted);margin:14px 0 0}
+dl{margin:0;display:grid;grid-template-columns:150px 1fr;gap:14px 24px}
+dt{font-weight:600}
+dd{margin:0;color:var(--muted)}
+footer{padding:32px 0 48px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+@media (max-width:640px){.pb{grid-template-columns:1fr}dl{grid-template-columns:1fr;gap:2px 0}dd{margin-bottom:12px}.feature{padding:22px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><strong id="nom"></strong><nav aria-label="Navigation"><a href="#projets">Projets</a><a href="#competences">Compétences</a><a href="#contact">Contact</a></nav></header>
+
+<main>
+<div class="hero">
+<h1>Des applications web et mobiles, de l’interface à la base de données.</h1>
+<p class="lead">Étudiant en 3ᵉ année du cycle ingénieur Informatique, Réseaux et Multimédia à POLYTECH INTL (Tunis), spécialité Systèmes d’Information et Génie Logiciel. Je recherche un stage en développement web et mobile.</p>
+<div class="links" id="hero-links"></div>
+</div>
+
+<section id="projets">
+<h2>Projets</h2>
+
+<article class="proj feature">
+<h3>Suivi médical du personnel, application interne BIAT</h3>
+<p class="ctx">Stage chez BIAT</p>
+<p class="stack">Symfony 7.1, Doctrine, Twig</p>
+<div class="pb">
+<div><h4>Le problème</h4><p>Chaque type de document médical (bilan sanguin, Holter tensionnel…) était une simple colonne texte du dossier, qui ne gardait qu’un nom de fichier. Chaque nouvel upload écrasait le précédent.</p></div>
+<div><h4>Ma solution</h4><p>J’ai créé une entité <code>DocumentMedical</code> liée au dossier par une relation <code>ManyToOne</code> et portant le type du document. J’ai écrit la migration Doctrine, repris les fichiers existants et adapté les formulaires et les vues Twig.</p></div>
+</div>
+<div class="diagram">
+<svg viewBox="0 0 560 130" role="img" aria-label="Un DossierMedical est lié à plusieurs DocumentMedical">
+<rect x="10" y="25" width="190" height="80" rx="10" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="105" y="55" text-anchor="middle" font-size="16" font-weight="700" fill="currentColor">DossierMedical</text>
+<text x="105" y="80" text-anchor="middle" font-size="13" fill="currentColor" opacity=".7">un dossier</text>
+<line x1="200" y1="65" x2="360" y2="65" stroke="var(--accent)" stroke-width="2.5"/>
+<line x1="360" y1="65" x2="340" y2="52" stroke="var(--accent)" stroke-width="2.5"/>
+<line x1="360" y1="65" x2="340" y2="78" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="280" y="55" text-anchor="middle" font-size="13" fill="var(--accent)" font-weight="700">ManyToOne</text>
+<rect x="360" y="25" width="190" height="80" rx="10" fill="var(--accent)"/>
+<text x="455" y="55" text-anchor="middle" font-size="16" font-weight="700" fill="var(--bg)">DocumentMedical</text>
+<text x="455" y="80" text-anchor="middle" font-size="13" fill="var(--bg)">plusieurs, avec un type</text>
+</svg>
+</div>
+</article>
+
+<article class="proj" data-i="0"></article>
+<article class="proj" data-i="1"></article>
+</section>
+
+<section id="competences">
+<h2>Compétences</h2>
+<dl>
+<dt>Front-end</dt><dd>React, Angular, HTML et CSS</dd>
+<dt>Mobile</dt><dd>Flutter</dd>
+<dt>Back-end</dt><dd>Spring Boot, Node.js, Symfony, API REST</dd>
+<dt>Données</dt><dd>MySQL, MongoDB, Doctrine</dd>
+<dt>Outils</dt><dd>Git</dd>
+</dl>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p class="lead">Je suis disponible pour un stage à temps plein. Écrivez-moi, je réponds rapidement.</p>
+<div class="links" id="contact-links"></div>
+</section>
+</main>
+
+<footer>© <span id="year"></span> <span id="nom2"></span>.</footer>
+</div>
+
+<script>
+/* À compléter : laissez "" pour masquer un lien */
+const C={nom:"Rebei Zakaria",email:"zikourebei1003@gmail.com",linkedin:"https://www.linkedin.com/in/zakaria-rebei/",github:"https://github.com/RebeiZakaria",cv:"cv.pdf"};
+const P=[
+{t:"Réservation de terrains de football",c:"Stage chez 9antra.tn",d:"Application full stack permettant de réserver des terrains de football en ligne.",s:"Angular, Spring Boot, MySQL",demo:"",code:""},
+{t:"Gestion de salle de sport",c:"Projet académique, application mobile",d:"Application mobile pour la gestion des équipements de la salle et la réservation de cours, avec planification intelligente, gestion des utilisateurs, notifications et statistiques d’utilisation.",s:"Flutter, Node.js, MongoDB",demo:"",code:""}];
+const $=s=>document.querySelector(s);
+const link=(h,l,cls)=>h?`<a class="btn ${cls||""}" href="${h}" target="_blank" rel="noopener">${l}</a>`:"";
+const mail=C.email?`mailto:${C.email}`:"";
+$("#nom").textContent=C.nom;$("#nom2").textContent=C.nom;$("#year").textContent=new Date().getFullYear();
+$("#hero-links").innerHTML=`<a class="btn main" href="#projets">Voir mes projets</a>`+link(C.cv,"Télécharger mon CV");
+$("#contact-links").innerHTML=link(mail,"Envoyer un e-mail","main")+link(C.linkedin,"LinkedIn")+link(C.github,"GitHub");
+document.querySelectorAll(".proj[data-i]").forEach(el=>{
+const p=P[+el.dataset.i];
+const ls=(p.demo?`<a href="${p.demo}" target="_blank" rel="noopener">Voir la démo</a>`:"")+(p.code?`<a href="${p.code}" target="_blank" rel="noopener">Voir le code</a>`:"");
+el.innerHTML=`<h3>${p.t}</h3><p class="ctx">${p.c}</p><p>${p.d}</p><p class="stack">${p.s}</p>${ls?`<div class="plinks">${ls}</div>`:""}`;
+});
+</script>
+</body>
+</html>
