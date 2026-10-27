@@ -3,7 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Zakaria Rebei, développeur web et mobile</title>
+<title>Rebei Zakaria, développeur web et mobile</title>
+<meta name="description" content="Étudiant ingénieur en 3ᵉ année à POLYTECH INTL (Tunis), je conçois des applications web et mobiles. Projets : BIAT, 9antra.tn, gestion de salle de sport.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rebei Zakaria, développeur web et mobile">
+<meta property="og:description" content="Des applications web et mobiles, de l’interface à la base de données.">
+<meta property="og:url" content="https://rebeizakaria.github.io/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
 <style>
@@ -47,7 +52,6 @@ section{padding:48px 0;border-top:1px solid var(--line)}
 .pb p{margin:0;font-size:16px}
 .diagram{overflow-x:auto;margin-top:8px}
 .diagram svg{display:block;min-width:520px;width:100%;height:auto}
-.note{font-size:14px;color:var(--muted);margin:14px 0 0}
 dl{margin:0;display:grid;grid-template-columns:150px 1fr;gap:14px 24px}
 dt{font-weight:600}
 dd{margin:0;color:var(--muted)}
@@ -58,13 +62,17 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 </head>
 <body>
 <div class="wrap">
-<header><strong id="nom"></strong><nav aria-label="Navigation"><a href="#projets">Projets</a><a href="#competences">Compétences</a><a href="#contact">Contact</a></nav></header>
+<header><strong>Rebei Zakaria</strong><nav aria-label="Navigation"><a href="#projets">Projets</a><a href="#competences">Compétences</a><a href="#contact">Contact</a></nav></header>
 
 <main>
 <div class="hero">
 <h1>Des applications web et mobiles, de l’interface à la base de données.</h1>
 <p class="lead">Étudiant en 3ᵉ année du cycle ingénieur Informatique, Réseaux et Multimédia à POLYTECH INTL (Tunis), spécialité Systèmes d’Information et Génie Logiciel. Je recherche un stage en développement web et mobile.</p>
-<div class="links" id="hero-links"></div>
+<div class="links">
+<a class="btn main" href="#projets">Voir mes projets</a>
+<!-- Quand cv.pdf est dans le dépôt, décommentez la ligne suivante :
+<a class="btn" href="cv.pdf" target="_blank" rel="noopener">Télécharger mon CV</a> -->
+</div>
 </div>
 
 <section id="projets">
@@ -94,8 +102,19 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 </div>
 </article>
 
-<article class="proj" data-i="0"></article>
-<article class="proj" data-i="1"></article>
+<article class="proj">
+<h3>Réservation de terrains de football</h3>
+<p class="ctx">Stage chez 9antra.tn</p>
+<p>Application full stack permettant de réserver des terrains de football en ligne.</p>
+<p class="stack">Angular, Spring Boot, MySQL</p>
+</article>
+
+<article class="proj">
+<h3>Gestion de salle de sport</h3>
+<p class="ctx">Projet académique, application mobile</p>
+<p>Application mobile pour la gestion des équipements de la salle et la réservation de cours, avec planification intelligente, gestion des utilisateurs, notifications et statistiques d’utilisation.</p>
+<p class="stack">Flutter, Node.js, MongoDB</p>
+</article>
 </section>
 
 <section id="competences">
@@ -112,30 +131,15 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 <section id="contact">
 <h2>Contact</h2>
 <p class="lead">Je suis disponible pour un stage à temps plein. Écrivez-moi, je réponds rapidement.</p>
-<div class="links" id="contact-links"></div>
+<div class="links">
+<a class="btn main" href="mailto:zikourebei1003@gmail.com">Envoyer un e-mail</a>
+<a class="btn" href="https://www.linkedin.com/in/zakaria-rebei/" target="_blank" rel="noopener">LinkedIn</a>
+<a class="btn" href="https://github.com/RebeiZakaria" target="_blank" rel="noopener">GitHub</a>
+</div>
 </section>
 </main>
 
-<footer>© <span id="year"></span> <span id="nom2"></span>.</footer>
+<footer>© 2026 Rebei Zakaria.</footer>
 </div>
-
-<script>
-/* À compléter : laissez "" pour masquer un lien */
-const C={nom:"Rebei Zakaria",email:"zikourebei1003@gmail.com",linkedin:"https://www.linkedin.com/in/zakaria-rebei/",github:"https://github.com/RebeiZakaria",cv:"cv.pdf"};
-const P=[
-{t:"Réservation de terrains de football",c:"Stage chez 9antra.tn",d:"Application full stack permettant de réserver des terrains de football en ligne.",s:"Angular, Spring Boot, MySQL",demo:"",code:""},
-{t:"Gestion de salle de sport",c:"Projet académique, application mobile",d:"Application mobile pour la gestion des équipements de la salle et la réservation de cours, avec planification intelligente, gestion des utilisateurs, notifications et statistiques d’utilisation.",s:"Flutter, Node.js, MongoDB",demo:"",code:""}];
-const $=s=>document.querySelector(s);
-const link=(h,l,cls)=>h?`<a class="btn ${cls||""}" href="${h}" target="_blank" rel="noopener">${l}</a>`:"";
-const mail=C.email?`mailto:${C.email}`:"";
-$("#nom").textContent=C.nom;$("#nom2").textContent=C.nom;$("#year").textContent=new Date().getFullYear();
-$("#hero-links").innerHTML=`<a class="btn main" href="#projets">Voir mes projets</a>`+link(C.cv,"Télécharger mon CV");
-$("#contact-links").innerHTML=link(mail,"Envoyer un e-mail","main")+link(C.linkedin,"LinkedIn")+link(C.github,"GitHub");
-document.querySelectorAll(".proj[data-i]").forEach(el=>{
-const p=P[+el.dataset.i];
-const ls=(p.demo?`<a href="${p.demo}" target="_blank" rel="noopener">Voir la démo</a>`:"")+(p.code?`<a href="${p.code}" target="_blank" rel="noopener">Voir le code</a>`:"");
-el.innerHTML=`<h3>${p.t}</h3><p class="ctx">${p.c}</p><p>${p.d}</p><p class="stack">${p.s}</p>${ls?`<div class="plinks">${ls}</div>`:""}`;
-});
-</script>
 </body>
 </html>
